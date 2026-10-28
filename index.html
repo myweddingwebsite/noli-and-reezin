@@ -91,6 +91,18 @@ body.locked .topbar{opacity:0;pointer-events:none}
 body.menu-open{overflow:hidden}
 section{scroll-margin-top:64px}
 
+/* ===== MUSIC ===== */
+.music{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:45;width:50px;height:50px;border-radius:50%;border:1px solid rgba(230,200,166,.6);background:radial-gradient(circle at 35% 30%,#2F7158,var(--evergreen) 60%,var(--deep));color:var(--gold-soft);display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 20px rgba(22,56,42,.35);transition:opacity .5s,transform .3s}
+.music .disc{display:grid;place-items:center}
+.music svg{width:20px;height:20px;grid-area:1/1;transition:opacity .25s}
+.music .i-pause{opacity:0}
+.music.playing .i-note{opacity:0}.music.playing .i-pause{opacity:1}
+.music:not(.playing)::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(230,200,166,.6);animation:ring 2.2s ease-out infinite}
+.music:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px}
+body.locked .music{opacity:0;pointer-events:none}
+@keyframes ring{from{transform:scale(1);opacity:.9}to{transform:scale(1.35);opacity:0}}
+@media(prefers-reduced-motion:reduce){.music::after{animation:none}}
+
 /* ===== HERO ===== */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 22px 70px;background:radial-gradient(ellipse at 50% 35%,#2A6550 0%,var(--evergreen) 50%,var(--deep) 100%);color:var(--gold-light);overflow:hidden}
 .hero:after{content:"";position:absolute;inset:66px 14px 14px;border:1px solid rgba(230,200,166,.35);pointer-events:none}
@@ -291,6 +303,14 @@ footer .credit a{text-decoration:none;color:var(--gold-soft)}
   <div class="tap">Tap to open</div>
 </div>
 
+
+<audio id="bgm" src="https://ik.imagekit.io/jcsquo5nq/RSVP%20ASSETS/Noah%20Alejandre%20-%20Nahuhulog%20Na%20Sa'yo.mp3" loop preload="none"></audio>
+<button class="music" id="musicBtn" type="button" aria-label="Play music" aria-pressed="false">
+  <span class="disc">
+    <svg class="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>
+    <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.2" height="14" rx="1"/><rect x="13.8" y="5" width="3.2" height="14" rx="1"/></svg>
+  </span>
+</button>
 
 <!-- NAV -->
 <header class="topbar" id="topbar">
@@ -690,6 +710,26 @@ function openEnv(){
 }
 intro.addEventListener('click', openEnv);
 env.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnv(); } });
+
+/* background music — starts with the envelope tap (the user gesture phones require) */
+const bgm = document.getElementById('bgm'), musicBtn = document.getElementById('musicBtn');
+let resumeOnShow = false;
+function musicUI(){
+  const on = !bgm.paused;
+  musicBtn.classList.toggle('playing', on);
+  musicBtn.setAttribute('aria-pressed', on);
+  musicBtn.setAttribute('aria-label', on ? 'Pause music' : 'Play music');
+}
+function playMusic(){ bgm.volume = 0.7; const p = bgm.play(); if (p && p.catch) p.catch(musicUI); }
+bgm.addEventListener('play', musicUI); bgm.addEventListener('pause', musicUI);
+bgm.addEventListener('error', () => { musicBtn.style.display = 'none'; });
+musicBtn.addEventListener('click', () => { bgm.paused ? playMusic() : bgm.pause(); });
+intro.addEventListener('click', playMusic, { once: true });
+env.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') playMusic(); });
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { resumeOnShow = !bgm.paused; bgm.pause(); }
+  else if (resumeOnShow) playMusic();
+});
 
 /* countdown */
 const pad = n => String(n).padStart(2, '0');
