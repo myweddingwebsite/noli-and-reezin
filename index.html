@@ -177,13 +177,16 @@ section{padding:76px 22px;position:relative}
 .ent-block{text-align:center;margin-bottom:34px}
 .ent-block h3{font-family:var(--caps);font-weight:500;font-size:12.5px;letter-spacing:.18em;color:var(--gold);margin-bottom:12px}
 .ent-block p{font-size:17px;line-height:1.55}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px 12px}
 .two .col h4{font-family:var(--serif);font-style:italic;font-weight:500;font-size:16px;color:var(--emerald);margin-bottom:6px}
 .two .col p{font-size:15.5px}
 .sponsors .col p{padding:2px 0}
+.ent-card .nm,.sponsors .col p,.ent-card h3{display:block;white-space:nowrap}
+.ent-card .col{min-width:0}
+.ent-card .two.stack{grid-template-columns:minmax(0,1fr);gap:22px}
 .leaf-sep{display:flex;justify-content:center;margin:6px 0 34px;opacity:.7}
 .leaf-sep svg{width:120px}
-.ent-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px 18px 8px;box-shadow:0 12px 30px rgba(36,52,43,.05)}
+.ent-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px 12px 8px;box-shadow:0 12px 30px rgba(36,52,43,.05)}
 
 /* attire */
 .attire-intro{text-align:center;color:var(--muted);font-style:italic;max-width:520px;margin:-14px auto 30px}
@@ -415,8 +418,8 @@ footer .credit a{text-decoration:none;color:var(--gold-soft)}
       <div class="ent-block reveal">
         <h3>PARENTS</h3>
         <div class="two">
-          <div class="col"><h4>of the Groom</h4><p>Loreto V. Bakingkito Jr.<br>Josefina M. Bakingkito</p></div>
-          <div class="col"><h4>of the Bride</h4><p>Raynaldo Gabion<br>Noemi Gabion</p></div>
+          <div class="col"><h4>of the Groom</h4><p><span class="nm">Loreto V. Bakingkito Jr.</span><span class="nm">Josefina M. Bakingkito</span></p></div>
+          <div class="col"><h4>of the Bride</h4><p><span class="nm">Raynaldo Gabion</span><span class="nm">Noemi Gabion</span></p></div>
         </div>
       </div>
 
@@ -434,49 +437,49 @@ footer .credit a{text-decoration:none;color:var(--gold-soft)}
 
       <div class="ent-block reveal">
         <div class="two">
-          <div class="col"><h3>BEST MAN</h3><p>Tristan Banasihan<br>Albert Ramirez</p></div>
-          <div class="col"><h3>MAID OF HONOR</h3><p>Grace Bakingkito</p><h3 style="margin-top:16px">MATRON OF HONOR</h3><p>Jancin Lourey Gabion</p></div>
+          <div class="col"><h3>BEST MAN</h3><p><span class="nm">Tristan Banasihan</span><span class="nm">Albert Ramirez</span></p></div>
+          <div class="col"><h3>MAID OF HONOR</h3><p><span class="nm">Grace Bakingkito</span></p><h3 style="margin-top:16px">MATRON OF HONOR</h3><p><span class="nm">Jancin Lourey Gabion</span></p></div>
         </div>
       </div>
 
       <div class="ent-block reveal">
         <div class="two">
-          <div class="col"><h3>GROOMSMEN</h3><p>Alvin Sarmiento<br>Angelo Longcop<br>Kennedy Sevial<br>Carlo Angelo Ortiz</p></div>
-          <div class="col"><h3>BRIDESMAIDS</h3><p>Honeylyn Rafrea<br>Katherine Palao<br>Erika Marie Brenches Banasihan<br>Camille Jane Maquirang</p></div>
+          <div class="col"><h3>GROOMSMEN</h3><p><span class="nm">Alvin Sarmiento</span><span class="nm">Angelo Longcop</span><span class="nm">Kennedy Sevial</span><span class="nm">Carlo Angelo Ortiz</span></p></div>
+          <div class="col"><h3>BRIDESMAIDS</h3><p><span class="nm">Honeylyn Rafrea</span><span class="nm">Katherine Palao</span><span class="nm">Erika Marie Brenches Banasihan</span><span class="nm">Camille Jane Maquirang</span></p></div>
         </div>
       </div>
 
       <div class="ent-block reveal">
         <h3>BRIDESMAN</h3>
-        <p>Emil Tupaz</p>
+        <p><span class="nm">Emil Tupaz</span></p>
       </div>
 
       <div class="leaf-sep"><svg viewBox="0 0 240 30"><use href="#garland"/></svg></div>
 
       <div class="ent-block reveal">
         <h3 style="margin-bottom:18px">SECONDARY SPONSORS</h3>
-        <div class="ent-block" style="margin-bottom:18px"><h4 style="font-style:italic;font-weight:500;color:var(--emerald)">to light our path · Candle</h4><p>Yvex Avelino &amp; Kim Kamille Tiangco</p></div>
-        <div class="ent-block" style="margin-bottom:18px"><h4 style="font-style:italic;font-weight:500;color:var(--emerald)">to clothe us as one · Veil</h4><p>Frenz Homer Mercado &amp; Arnie Bulawin</p></div>
-        <div class="ent-block" style="margin-bottom:0"><h4 style="font-style:italic;font-weight:500;color:var(--emerald)">to bind us together · Cord</h4><p>Eduard Den Mendoza &amp; Bianca Serrano</p></div>
+        <div class="ent-block" style="margin-bottom:18px"><h4 style="font-style:italic;font-weight:500;color:var(--emerald)">to light our path · Candle</h4><p><span class="nm">Yvex Avelino &amp; Kim Kamille Tiangco</span></p></div>
+        <div class="ent-block" style="margin-bottom:18px"><h4 style="font-style:italic;font-weight:500;color:var(--emerald)">to clothe us as one · Veil</h4><p><span class="nm">Frenz Homer Mercado &amp; Arnie Bulawin</span></p></div>
+        <div class="ent-block" style="margin-bottom:0"><h4 style="font-style:italic;font-weight:500;color:var(--emerald)">to bind us together · Cord</h4><p><span class="nm">Eduard Den Mendoza &amp; Bianca Serrano</span></p></div>
       </div>
 
       <div class="leaf-sep"><svg viewBox="0 0 240 30"><use href="#garland"/></svg></div>
 
       <div class="ent-block reveal">
         <div class="two">
-          <div class="col"><h3>BIBLE BEARER</h3><p>John Nathaniel N. Bakingkito</p></div>
-          <div class="col"><h3>RING BEARER</h3><p>Liam Reyce Ortiz</p></div>
+          <div class="col"><h3>BIBLE BEARER</h3><p><span class="nm">John Nathaniel N. Bakingkito</span></p></div>
+          <div class="col"><h3>RING BEARER</h3><p><span class="nm">Liam Reyce Ortiz</span></p></div>
         </div>
       </div>
       <div class="ent-block reveal">
         <div class="two">
-          <div class="col"><h3>COIN BEARER</h3><p>Josh Nicholas N. Bakingkito</p></div>
-          <div class="col"><h3>BANNER BEARERS</h3><p>Jhemia Rose Derla Buelva<br>Chloe</p></div>
+          <div class="col"><h3>COIN BEARER</h3><p><span class="nm">Josh Nicholas N. Bakingkito</span></p></div>
+          <div class="col"><h3>BANNER BEARERS</h3><p><span class="nm">Jhemia Rose Derla Buelva</span><span class="nm">Chloe</span></p></div>
         </div>
       </div>
       <div class="ent-block reveal">
         <h3>FLOWER GIRLS</h3>
-        <p>Jane Nathalie N. Bakingkito<br>Amarah Jade M. Gamboa<br>Amariah Skye B. Bandillo</p>
+        <p><span class="nm">Jane Nathalie N. Bakingkito</span><span class="nm">Amarah Jade M. Gamboa</span><span class="nm">Amariah Skye B. Bandillo</span></p>
       </div>
     </div>
   </div>
@@ -564,7 +567,7 @@ footer .credit a{text-decoration:none;color:var(--gold-soft)}
   <div class="mono">N &amp; R</div>
   <div class="d">01 · 30 · 2027</div>
   <p style="font-style:italic;margin-bottom:22px;color:var(--mint)">Thank you for being part of our story.</p>
-  <div class="credit">Made with love by <a href="https://www.instagram.com/loveanne.ph" target="_blank" rel="noopener">Love, Anne · @loveanne.ph</a></div>
+  <div class="credit">Made with love by <a href="https://www.tiktok.com/@loveanne.ph" target="_blank" rel="noopener">Love, Anne</a></div>
 </footer>
 
 <script>
@@ -577,6 +580,37 @@ const NINANGS = ["Ms. Milagros Maquirang","Ms. Fe Reantazo","Ms. Margie Baria","
 
 const fill = (id, arr) => { const el = document.getElementById(id); arr.forEach(n => { const p = document.createElement('p'); p.textContent = n; el.appendChild(p); }); };
 fill('ninongs', NINONGS); fill('ninangs', NINANGS);
+
+/* keep every entourage name and role title on one line; names in the same group share one size */
+function fitNames(){
+  const groups = document.querySelectorAll('.ent-card .ent-block');
+  groups.forEach(g => {
+    if (g.querySelector('.ent-block')) return;               // outer wrapper of nested blocks
+    const items = [...g.querySelectorAll('.nm, .sponsors .col p, .col p:not(:has(.nm))')];
+    const heads = [...g.querySelectorAll('h3')];
+    [items, heads].forEach(list => {
+      if (!list.length) return;
+      list.forEach(el => el.style.fontSize = '');
+      let fs = parseFloat(getComputedStyle(list[0]).fontSize);
+      const fits = () => list.every(el => el.scrollWidth <= el.parentElement.closest('.col, .ent-block').clientWidth);
+      while (!fits() && fs > 10) { fs -= 0.25; list.forEach(el => el.style.fontSize = fs + 'px'); }
+      if (list === items) g._fs = fs;
+    });
+  });
+}
+function fitEntourage(){
+  document.querySelectorAll('.ent-card .two').forEach(t => t.classList.remove('stack'));
+  fitNames();
+  let changed = false;
+  document.querySelectorAll('.ent-card .ent-block').forEach(g => {
+    const t = g.querySelector(':scope > .two');
+    if (t && g._fs && g._fs < 14 && !g.classList.contains('sponsors')) { t.classList.add('stack'); changed = true; }
+  });
+  if (changed) fitNames();
+}
+fitEntourage();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitEntourage);
+addEventListener('resize', fitEntourage);
 document.getElementById('rsvpBtn').href = RSVP_URL;
 
 /* envelope opening: seal lifts → flap opens → card slides out → envelope closes & drops →
